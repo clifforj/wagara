@@ -1,6 +1,6 @@
-import {PatternConfiguration} from '../pattern-configuration.model';
+import {AbstractPatternConfiguration} from '../abstract-pattern-configuration';
 
-export class WavePatternConfiguration extends PatternConfiguration {
+export class WavePatternConfiguration extends AbstractPatternConfiguration {
   waveSize: number;
   stepCount: number;
   rows?: number;

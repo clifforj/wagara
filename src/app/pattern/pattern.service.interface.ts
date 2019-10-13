@@ -1,7 +1,8 @@
 import Konva from 'konva';
-import {PatternConfiguration} from './pattern-configuration.model';
+import {IPatternConfiguration} from './pattern-configuration.interface';
 
 export interface IPatternService {
-  latestConfiguration: PatternConfiguration;
-  generateLayer(config: PatternConfiguration): Konva.Layer;
+  generateLayer(): Konva.Layer;
+  setConfig(config: IPatternConfiguration);
+  getConfig(): IPatternConfiguration;
 }

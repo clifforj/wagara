@@ -1,25 +1,17 @@
 import { Injectable } from '@angular/core';
-import {IPatternService} from '../pattern.service.interface';
-import {PatternConfiguration} from '../pattern-configuration.model';
 import Konva from 'konva';
 import {SanWeavePatternConfiguration} from './san-weave-pattern-configuration';
+import {AbstractPatternService} from '../abstract-pattern.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SanWeaveService implements IPatternService {
-
-  constructor() { }
-
+export class SanWeaveService extends AbstractPatternService {
   latestConfiguration: SanWeavePatternConfiguration;
   verticalWeave: boolean;
 
-  generateLayer(config: SanWeavePatternConfiguration): Konva.Layer {
+  generateLayer(): Konva.Layer {
     const layer = new Konva.Layer();
-
-    if (config) {
-      this.latestConfiguration = config;
-    }
 
     layer.add(new Konva.Rect({
       x: 0,

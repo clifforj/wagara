@@ -1,25 +1,20 @@
 import { Injectable } from '@angular/core';
 import Konva from 'konva';
-import {IPatternService} from '../pattern.service.interface';
 import {WavePatternConfiguration} from './wave-pattern-configuration';
+import {AbstractPatternService} from '../abstract-pattern.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class WaveService implements IPatternService {
+export class WaveService extends AbstractPatternService {
   static ARC_ANGLE = 120;
   static ARC_ROTATION = -150;
   static ARC_OFFSET_ANGLE = (180 - WaveService.ARC_ANGLE) / 2;
 
   latestConfiguration: WavePatternConfiguration;
 
-  generateLayer(config: WavePatternConfiguration): Konva.Layer {
+  generateLayer(): Konva.Layer {
     const layer = new Konva.Layer();
-
-    if (config) {
-      this.latestConfiguration = config;
-    }
-
     const rows = this.getRows();
     const wavesPerOddRow = Math.ceil(this.latestConfiguration.stageWidth / this.getWaveWidth());
     const wavesPerEvenRow = wavesPerOddRow + 2;

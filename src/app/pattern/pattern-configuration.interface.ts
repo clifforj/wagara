@@ -1,4 +1,4 @@
-export class PatternConfiguration {
+export interface IPatternConfiguration {
   stageWidth: number;
   stageHeight: number;
   fillColor: string;

@@ -1,6 +1,6 @@
-import {PatternConfiguration} from '../pattern-configuration.model';
+import {AbstractPatternConfiguration} from '../abstract-pattern-configuration';
 
-export class SanWeavePatternConfiguration extends PatternConfiguration {
+export class SanWeavePatternConfiguration extends AbstractPatternConfiguration {
   stepCount: number;
   gapSize: number;
 }
